@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 public class ProgramRunner
 	{
-		static int showCharLength = 0;
-		static int indexOfShowCharLength = 0;
 		static ArrayList<Program> tvShows = new ArrayList<Program>( );
 		public static void main(String[] args)
 		{
@@ -42,17 +40,22 @@ public class ProgramRunner
 		}
 		public static void addNumberOfSeasons()
 		{
-			tvShows.get(3).setNumberOfSeasonsAired(tvShows.get(3).getNumberOfSeasonsAired()+ 1);
+			for(int i = 0; i < tvShows.size(); i++)
+				{
+			tvShows.get(i).setNumberOfSeasonsAired(tvShows.get(i).getNumberOfSeasonsAired()+ 1);
+				}
 		}
 		public static void deleteLongestShow()
 		{
+			int showCharLength = tvShows.get(0).getTitle().length();
+			int indexOfShowCharLength = 0;
 			for(int i = 0; i < tvShows.size(); i++)
 				{
-					showCharLength = tvShows.get(i).getTitle().length();
+					
 					if(showCharLength < tvShows.get(i).getTitle().length())
 						{
-							showCharLength = tvShows.get(i).getTitle().length();
 							indexOfShowCharLength = i;
+							showCharLength = tvShows.get(i).getTitle().length();
 						}
 				}
 			tvShows.remove(indexOfShowCharLength);
